@@ -1,0 +1,27 @@
+{
+"negroni": {"path":"../assets/negroni.jpg",
+            "name": "negroni", "key": 0, "ingrediants": [["gin",1],["campari",1],["sweet-vermouth",1]]},
+
+"moscow-mule": {"path":"../assets/moscow-mule.jpg",
+            "name": "moscow-mule", "key": 1,  "ingrediants":[["vodka",2],["ginger",1],["sweet-vermouth",1]]},
+
+"gimlet": { "path":"../assets/moscow-mule.jpg",
+            "name": "gimlet", "key": 2,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+
+"jimlet": { "path":"../assets/moscow-mule.jpg",
+            "name": "gimlet", "key": 3,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+
+
+"kimlet": { "path":"../assets/moscow-mule.jpg",
+            "name": "gimlet", "key": 4,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+
+
+"nimlet": { "path":"../assets/moscow-mule.jpg",
+            "name": "gimlet", "key": 5,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+
+
+"dimlet": { "path":"../assets/moscow-mule.jpg",
+             "name": "gimlet", "key": 6,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]}
+}
+
+
