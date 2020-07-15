@@ -1,55 +1,48 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {IngredList} from '../components/drinkList';
+import Header from '../components/header';
 
 export default function Ingrediants() {
 
     return (
-        <View>
-            <Text>{"Howdy"}</Text>
-          </View>
+      <React.Fragment>
+        <Header />
+        <View style={styles.heading}>
+            <Text style={styles.header}>Ingrediants</Text>
+            <Text style={styles.body}> For 1 serving of each selected drink </Text>
+        </View>
+
+        <View style={styles.list}>
+          <IngredList />
+        </View>
+        </React.Fragment>
   );
 }
 
+const styles = StyleSheet.create({
+    heading: {
+      //flex: 1,
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      margin: 16,
+    },
+    header: {
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      margin: 4,
+      fontSize: 20,
+      fontWeight:"bold",
+    },
+    body: {
+      //fontSize: 20,
+      //fontWeight:"bold",
+    },
+    list: {
+      flex: 1,
+      //justifyContent: 'center',
+      //alignItems: 'center',
+      margin: 16,
+    },
 
-
-// import React, {useState} from 'react';
-// import { StyleSheet, Button, View, } from 'react-native';
-// import DrinkList from '../components/drinkList'
-// import DATA from '../data/data.json'
-
-// export default function Home() {
-
-
-//   let drink_keys =Object.keys( DATA )
-//   let drinks = [];
-
-//   for (let i =0;i<drink_keys.length;i++){
-//       let out = DATA[drink_keys[i]]
-//       drinks.push( out )
-//   }
-
-//   // drinks = [
-//   //   {name: "negroni", "key": 0},
-//   //   {name: "negroni", "key": 1}
-//   // ]
-    
-
-//   console.log( drinks )
-//     return (
-//     <React.Fragment>
-//         <View style={styles.container}>
-//           <DrinkList entities={drinks} />
-//         </View>
-//     </React.Fragment>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       margin: 2,
-//     },
-//   });
+  });

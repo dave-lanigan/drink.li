@@ -13,7 +13,7 @@
 
 
 "kimlet": { "path":"../assets/moscow-mule.jpg",
-            "name": "gimlet", "key": 4,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+            "name": "gimlet", "key": 4,  "ingrediants":[["gin",2,"oz"],["simple-syrup",0.75],["lime-juice",0.75]]},
 
 
 "nimlet": { "path":"../assets/moscow-mule.jpg",

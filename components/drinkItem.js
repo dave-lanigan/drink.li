@@ -51,15 +51,19 @@ export function DrinkItem(props) {
 
 export function IngredItem(props) {
 
+    console.log(props.info)
+
     return (
-
         <View style={styles.icomp}>
-            <Text>{name}</Text>
-
+            <Text style={{ alignItems: "flex-start", padding: 4 }}>{props.info[1]}</Text>
+            <Text style={{ alignItems: "flex-end", padding: 4 }}>{props.info[0]}</Text>
         </View>
-
   );
 }
+
+
+
+
 
 const styles = StyleSheet.create({
   image: {
@@ -75,8 +79,12 @@ const styles = StyleSheet.create({
       borderStyle: "solid",
   },
   icomp: {
-    margin: 16,
-    alignItems: "center",
+    margin: 4,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomColor: "#ced4da",
+    borderBottomWidth: 2,
+    borderBottomStyle: "solid",
   },
 
   text: {
