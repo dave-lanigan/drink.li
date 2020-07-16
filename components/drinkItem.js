@@ -5,23 +5,22 @@ import Profiles from './getImages';
 
 export function DrinkItem(props) {
 
-    function upperCaseIt(name){
-        let nameArray = name.split(" ");
-        for (let i=0;i<nameArray.length;i++){
-            let w = nameArray[i];
-            nameArray[i] = w[0].toUpperCase() + w.slice(1);
-        }
-        return nameArray.join(" ")
-    }
+    // function upperCaseIt(name){
+    //     let nameArray = name.split(" ");
+    //     for (let i=0;i<nameArray.length;i++){
+    //         let w = nameArray[i];
+    //         nameArray[i] = w[0].toUpperCase() + w.slice(1);
+    //     }
+    //     return nameArray.join(" ")
+    // }
 
-    let name = upperCaseIt( props.info[1].replace("-"," ") );
-    let obj_name = props.info[1].replace("-","");
+    let obj_name = props.info[0].replaceAll("-","_")
 
+    console.log("here")
+    console.log(obj_name)
+    console.log(Profiles.aviation)
+    console.log(Profiles[obj_name])
 
-    let obj = Profiles[0];
-
-    console.log( obj_name )
-    //console.log(obj[obj_name]["src"])
 
     return (
     <React.Fragment>
@@ -39,9 +38,9 @@ export function DrinkItem(props) {
                         }}>      
                 {/* <Image style={styles.image} source={ require( "../assets/moscow-mule.jpg" ) } /> */}
 
-                <Image style={styles.image} source={ obj.negroni.src } /> 
+                <Image style={styles.image} source={ Profiles[obj_name]["src"] } /> 
 
-                <Text style={styles.text} >{name}</Text>
+                <Text style={styles.text} >{ props.info[1] }</Text>
             </View>
         </TouchableOpacity>
     </React.Fragment>
@@ -51,8 +50,6 @@ export function DrinkItem(props) {
 
 export function IngredItem(props) {
 
-    console.log(props.info)
-
     return (
         <View style={styles.icomp}>
             <Text style={{ alignItems: "flex-start", padding: 4 }}>{props.info[1]}</Text>
@@ -60,9 +57,6 @@ export function IngredItem(props) {
         </View>
   );
 }
-
-
-
 
 
 const styles = StyleSheet.create({
@@ -82,9 +76,9 @@ const styles = StyleSheet.create({
     margin: 4,
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomColor: "#ced4da",
-    borderBottomWidth: 2,
-    borderBottomStyle: "solid",
+    //borderBottomColor: "#ced4da",
+    //borderBottomWidth: 2,
+    //borderBottomStyle: "solid",
   },
 
   text: {

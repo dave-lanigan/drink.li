@@ -6,7 +6,6 @@ export default function Ingrediants() {
 
     return (
       <React.Fragment>
-        <Header />
         <View style={styles.heading}>
             <Text style={styles.body}> This App was created by David M.J. Lanigan </Text>
         </View>

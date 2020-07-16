@@ -7,7 +7,7 @@ export function DrinkList(props) {
   return (
         <FlatList
         data={DATA}
-        renderItem={ ( {item} ) => ( <DrinkItem info={ [item.path, item.name, item.key] } func={props.func} /> ) }
+        renderItem={ ( {item} ) => ( <DrinkItem info={ [item.token, item.name, item.key] } func={props.func} /> ) }
         numColumns={2}
         />
   );
@@ -15,18 +15,12 @@ export function DrinkList(props) {
 
 export function IngredList(props) {
 
-   const DATA = [
-      {name: "Vodka", amount:"alot", key:"0"},
-      {name: "Rum", amount:"alot", key:"1"},
-      {name: "Gin", amount:"alot", key:"2"},
-      ]
-
-      console.log( DATA )
+   let DATA = props.entities;
 
    return (
          <FlatList
          data={DATA}
-      renderItem={ ( {item} ) => ( <IngredItem info={ [item.amount, item.name] }/> ) }
+         renderItem={ ( {item} ) => ( <IngredItem info={ [item.amount, item.ingred] }/> ) }
          />
    );
  }

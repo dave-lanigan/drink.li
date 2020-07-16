@@ -15,8 +15,21 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tabs = createMaterialBottomTabNavigator();
+
+
+function StackedHome(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home}/>
+      <Stack.Screen name="Ingrediants" component={Ingrediants}/>
+      <Stack.Screen name="About" component={About}/>
+    </Stack.Navigator>
+  )
+}
+
+
 
 export default function App() {
   return (
@@ -47,9 +60,8 @@ export default function App() {
                 activeTintColor: 'tomato',
                 inactiveTintColor: 'gray',
               }}
-          >
-              <Tabs.Screen name="Home" component={Home} />
-              <Tabs.Screen name="Ingrediants" component={Ingrediants} />
+               >
+              <Tabs.Screen name="Home" component={StackedHome} />
               <Tabs.Screen name="About" component={About} />
           </Tabs.Navigator>
       </NavigationContainer>
@@ -64,3 +76,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#489fb5',
   },
 });
+
+
+//              <Tabs.Screen name="Ingrediants" component={Ingrediants} />

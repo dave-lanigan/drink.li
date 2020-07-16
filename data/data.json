@@ -1,27 +1,107 @@
-{
-"negroni": {"path":"../assets/negroni.jpg",
-            "name": "negroni", "key": 0, "ingrediants": [["gin",1],["campari",1],["sweet-vermouth",1]]},
+{"margarita": {"token": "margarita", 
+               "key": 0, 
+               "name": "Margarita", 
+               "ingredients": [{"amount": 2, "unit": "oz", "que": "blanco tequila"}, 
+                               {"amount": 1, "unit": "oz", "que": "fresh lime juice"}, 
+                               {"amount": 0.5, "unit": "oz", "que": "orange liqueur"}, 
+                               {"amount": 0.5, "unit": "oz", "que": "agave syrup"}, 
+                               {"garnish": "lime wheel"}, {"garnish": "kosher salt"}]}, 
 
-"moscow-mule": {"path":"../assets/moscow-mule.jpg",
-            "name": "moscow-mule", "key": 1,  "ingrediants":[["vodka",2],["ginger",1],["sweet-vermouth",1]]},
+"mojito": {"token": "mojito", "key": 1, "name": "Mojito", 
+           "ingredients": [{"amount": 2, "unit": "oz", "que": "white rum"}, 
+                           {"amount": 0.8, "unit": "oz", "que": "fresh lime juice"}, 
+                           {"amount": 0.5, "unit": "oz", "que": "simple syrup"}, 
+                           {"garnish": "mint sprig"}, {"garnish": "lime wheel"}]}, 
 
-"gimlet": { "path":"../assets/moscow-mule.jpg",
-            "name": "gimlet", "key": 2,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
+"tequila-sunrise": {"token": "tequila-sunrise", "key": 2, "name": "Tequila Sunrise", 
+                    "ingredients": [{"amount": 2, "unit": "oz", "que": "blanco tequila"}, 
+                                    {"amount": 4, "unit": "oz", "que": "fresh orange juice"}, 
+                                    {"amount": 0.2, "unit": "oz", "que": "grenadine"}, 
+                                    {"garnish": "orange slice"}, {"garnish": "cherry"}]}, 
 
-"jimlet": { "path":"../assets/moscow-mule.jpg",
-            "name": "gimlet", "key": 3,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
-
-
-"kimlet": { "path":"../assets/moscow-mule.jpg",
-            "name": "gimlet", "key": 4,  "ingrediants":[["gin",2,"oz"],["simple-syrup",0.75],["lime-juice",0.75]]},
-
-
-"nimlet": { "path":"../assets/moscow-mule.jpg",
-            "name": "gimlet", "key": 5,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]},
-
-
-"dimlet": { "path":"../assets/moscow-mule.jpg",
-             "name": "gimlet", "key": 6,  "ingrediants":[["gin",2],["simple-syrup",0.75],["lime-juice",0.75]]}
-}
-
-
+"white-russian": {"token": "white-russian", "key": 3, "name": "White Russian", 
+                  "ingredients": [{"amount": 2, "unit": "oz", "que": "vodka"}, 
+                                  {"amount": 1, "unit": "oz", "que": "kahl\u00faa"}, 
+                                  {"amount": 1, "unit": "splash", "que": "heavy cream"}]}, 
+                                  
+"gimlet": {"token": "gimlet", "key": 4, "name": "Gimlet", 
+           "ingredients": [{"amount": 2, "unit": "oz", "que": "gin"}, 
+                           {"amount": 0.5, "unit": "oz", "que": "lime juice"}, 
+                           {"amount": 0.5, "unit": "oz", "que": "simple syrup"}, 
+                           {"garnish": "lime wheel"}]}, 
+                           
+"lemon-drop": {"token": "lemon-drop", "key": 5, "name": "Lemon Drop", 
+               "ingredients": [{"amount": 2, "unit": "oz", "que": "vodka"}, 
+                               {"amount": 0.5, "unit": "oz", "que": "triple sec"}, 
+                               {"amount": 1, "unit": "oz", "que": "simple syrup"}, 
+                               {"amount": 1, "unit": "oz", "que": "lemon juice"}, {"garnish": "sugar rim"}]}, 
+                               
+"old-fashioned": {"token": "old-fashioned", "key": 6, "name": "Old Fashioned", 
+                  "ingredients": [{"amount": 0.5, "unit": "tsp", "que": "sugar"}, 
+                                  {"amount": 3, "unit": "dashes", "que":"Angstura bitters"}, 
+                                  {"amount": 1, "unit": "tsp", "que": "water"}, 
+                                  {"amount": 2, "unit": "oz", "que": "bourbon"}, 
+                                  {"garnish": "orange peel"}]}, 
+                                  
+"tequila-mockingbird": {"token": "tequila-mockingbird", "key": 7, "name": "Tequila Mockingbird", 
+                        "ingredients": [{"amount": 1}, 
+                                        {"amount": 3}, 
+                                        {"amount": 2, "unit": "oz", "que": "silver tequila"}, 
+                                        {"amount": 0.8, "unit": "oz", "que": "lime juice"}, 
+                                        {"amount": 0.8, "unit": "oz", "que": "agave syrup"}]}, 
+                                        
+"bloody-mary": {"token": "bloody-mary", "key": 8, "name": "Bloody Mary", 
+                   "ingredients": [{"amount": 2, "unit": "oz", "que": "gin"}, 
+                                   {"amount": 4, "unit": "oz", "que": "tomato juice"}, 
+                                   {"amount": 0.5, "unit": "oz", "que": "lemon juice"}, 
+                                   {"amount": 1, "unit": "tbsp", "que": "horseradish" }, 
+                                   {"amount": 1, "unit": "tbsp", "que": "balsamic vineger" }, 
+                                   {"amount": 1, "unit": "tsp", "que": "worcestershire sauce"}, 
+                                   {"amount": 3, "unit": "dashes", "que": "salt"}, 
+                                   {"amount": 3, "unit": "dashes", "que": "pepper"}, 
+                                   {"amount": 1, "unit": "clove", "que": "minced garlic"},
+                                   {"garnish": "celery"},
+                                   {"garnish": "dill pickle"},
+                                   {"garnish": "olives"}, 
+                                   {"garnish": "cherry tomatoes or carrot"}]}, 
+                                   
+"sex-on-the-beach": {"token": "sex-on-the-beach", "key": 9, "name": "Sex on the Beach", 
+                     "ingredients": [{"amount": 1.5, "unit": "oz", "que": "vodka"}, 
+                                     {"amount": 0.5, "unit": "oz", "que": "peach schnapps"}, 
+                                     {"amount": 1.5, "unit": "oz", "que": "orange or pineapple juice"}, 
+                                     {"amount": 1.5, "unit": "oz", "que": "cranberry juice"}, 
+                                     {"amount": 0.5, "unit": "oz", "que": "chambord or cr\u00e8me de cassis (optional)"}, 
+                                     {"garnish": "cocktail umbrella"}]}, 
+                                     
+"aviation": {"token": "aviation", "key": 10, "name": "Aviation", 
+             "ingredients": [{"amount": 2, "unit": "oz", "que": "gin"}, 
+                             {"amount": 0.5, "unit": "oz", "que": "maraschino liqueur"}, 
+                             {"amount": 0.5, "unit": "oz", "que": "cr\u00e8me de violette or cr\u00e8me yvette"}, 
+                             {"amount": 0.8, "unit": "oz", "que": "lemon juice"}, 
+                             {"garnish": "brandied cherry"}]}, 
+                             
+"summer-martini": {"token": "summer-martini", "key": 11, "name": "Summer Martini", 
+                   "ingredients": [{"amount": 3, "unit": "oz", "que": "gin"}, 
+                                   {"amount": 1, "unit": "oz", "que": "dry vermouth"}, 
+                                   {"amount": 1, "garnish": "blackberry and raspberry"}]}, 
+                                   
+"eclipse": {"token": "eclipse", "key": 12, "name": "Eclipse", 
+            "ingredients": [{"amount": 2, "unit": "oz", "que": "turmeric-infused vodka*"}, 
+                            {"amount": 1, "unit": "oz", "que": "carrot juice**"}, 
+                            {"amount": 0.75, "unit": "oz", "que": "honey"}, 
+                            {"amount": 0.8, "unit": "oz", "que": "lemon juice"}, 
+                            {"amount": 2, "unit":"dashes","que": "Angostura bitters"}, 
+                            {"garnish": "celery stick"}]}, 
+                            
+"tom-collins": {"token": "tom-collins", "key": 13, "name": "Tom Collins", 
+                   "ingredients": [{"amount": 2, "unit": "oz", "que": "gin"},
+                                   {"amount": 0.5, "unit": "oz", "que": "simple syrup"}, 
+                                   {"amount": 1, "unit": "oz", "que": "lemon juice"}, 
+                                   {"amount": 1, "unit": "oz", "que": "club soda"},
+                                   {"garnish": "lemon wheel"},
+                                   {"garnish": "maraschino cherry"}]},
+                                   
+"moscow-mule": {"token": "moscow-mule", "key": 14, "name": "Moscow Mule", 
+                "ingredients": [{"amount": 2, "unit": "oz", "que": "vodka"}, 
+                                {"amount": 3, "unit": "oz", "que": "ginger beer"}, 
+                                {"garnish": "lime wheel"}]}}
