@@ -35,6 +35,12 @@ let Profiles={
   tom_collins:{"src" : require('../assets/images/tom-collins.jpg')},
 
   moscow_mule:{"src" : require('../assets/images/moscow-mule.jpg')},
+
+  french_75:{"src" : require('../assets/images/french-75.jpg')},
+
+  daiquiri:{"src" : require('../assets/images/daiquiri.jpg')},
+
+  darknstormy:{"src" : require('../assets/images/darknstormy.jpg')},
 }
 
 

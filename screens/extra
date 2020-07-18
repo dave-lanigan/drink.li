@@ -1,0 +1,35 @@
+
+  const [data_state, setDataState] = useState( {isLoading: true, dataSource: null} );
+  const [data, setData] = useState( [] );
+
+  function getData(term) {
+
+    console.log(term[0])
+      
+    //use search by name
+      let url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${term[0]}`;
+
+      console.log(url)
+
+      return fetch( url ).then( (resp) => resp.json()).then( (json) =>{
+
+                      for (let i=1;i<16;i++){
+                        let index = i.toString();
+                        let d={};
+                        
+                        let itemm = DATA[ "strIngredient"+index];
+                        let itemm1 = DATA[ "strMeasure"+index ];
+                    
+                        if (itemm!=null && itemm1!=null){
+                              let d={};
+                              d["ingreds"]=itemm;
+                              d["amount"]= itemm1;
+                              d["key"]=index;
+                              data.push( d );
+                              }
+                      }
+
+          setDataState( {isLoading: false, dataSource: filtered_json } )
+
+      }).catch( (error) => console.log(error) )   
+  }

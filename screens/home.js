@@ -1,65 +1,109 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import {DrinkList} from '../components/drinkList';
-import Header from '../components/header';
-import DATA from '../data/data.json';
-import {createStackNavigator} from '@react-navigation/stack';
+import { StyleSheet ,View, Text, TouchableOpacity } from 'react-native';
+import {DrinkList} from '../components/lists';
+import { SearchBar } from 'react-native-elements';
 
-/*
 
-Question: how do we:
---> pass data between screens
---> get state from child elements
-*/
-
-const Stack = createStackNavigator();
+let ids_array=[];
 
 export default function Home({ navigation }) {
 
-  const [namesArray,setIngreds] = useState([]);
+  let idsArray=[];
 
+  const [search_state, setSearch] = useState( { search: "" });
+  const [data_state, setDataState] = useState( {isLoading: true, dataSource: null} );
 
-  let drink_keys =Object.keys( DATA )
-  let drinks = [];
-  //let drink_states = [];
+  //const [ids_array, setArray] = useState( [] );
 
-  for (let i =0;i<drink_keys.length;i++){
-      let out = DATA[drink_keys[i]]
-      drinks.push( out )
+  function componentDidMount(term) {
+      
+      let url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${term[0]}`;
+
+      return fetch( url ).then( (resp) => resp.json()).then( (json) =>{
+          let data=json.drinks;
+          let filtered_json = data.filter( function(value){ let name = value.strDrink.toLowerCase()
+                                                            return name.includes(term)==true} )
+          
+          setDataState( {isLoading: false, dataSource: filtered_json } )
+      }).catch( (error) => console.log(error) )   
   }
-
-  // drinks = [
-  //   {name: "negroni", "key": 0},
-  //   {name: "negroni", "key": 1}
-  // ]
-  
-  //[...namesArray,newEl]
 
   const pressItemHandler = (key) => {
     
-    console.log( "pressed" )
-    console.log( drink_keys[key]  )
-    
-    namesArray.push( drink_keys[key] )
-    
-    setIngreds( () => namesArray )
-    console.log(namesArray)
+    ids_array.push( data_state.dataSource.filter( (value) => value.idDrink==key )[0] );
+
+    console.log( ids_array )
+
+    //let new_ids_array = [...ids_array, data_state.dataSource.filter( (value) => value.idDrink==key )[0]  ];
+
+    //setArray( new_ids_array )
+  
   }
   
-  return (
-    <React.Fragment>
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.getIngreds} onPress={() => navigation.navigate('Ingrediants', {"names": namesArray } )}>
-          <View style={ {  } } >
-            <Text>Get Ingrediants</Text>
+  const updateSearch = ( search ) => {
+        setSearch( { search } );
+        if (search!=""){ componentDidMount( search.toLowerCase() ); }
+      }
+  
+  if (data_state.isLoading==false){
+
+    return (
+      <React.Fragment>
+
+            <SearchBar
+              placeholder="Search For Drink Here.."
+              onChangeText={ updateSearch }
+              round={true}
+              containerStyle={{backgroundColor: 'white', borderBottomColor: "white", borderTopColor: "white"}}
+              value={ search_state.search }
+            />
+
+          <View style={styles.buttons}>
+            <TouchableOpacity style={styles.getIngreds} 
+                              onPress={() => navigation.navigate('Ingrediants', {"ids": idsArray, "data": ids_array } )}>
+
+              <View style={ {  } } >
+                <Text>Get Ingrediants</Text>
+              </View>
+            
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.getIngreds} onPress={ () => ids_array=[] }>
+              <View style={ {  } } >
+                <Text>Reset List</Text>
+              </View>
+            </TouchableOpacity>
+
           </View>
-        </TouchableOpacity>
+        
+        <View style={styles.container}>
+          <DrinkList entities={data_state.dataSource} nav={navigation} func={pressItemHandler}/>
+        </View>
+      </React.Fragment>
+    );
+    }
+
+  else if (data_state.isLoading==true){
+
+    return (
+      <React.Fragment>
+
+           <SearchBar
+              placeholder="Search For Drink Here.."
+              onChangeText={ updateSearch }
+              round={true}
+              value={ search_state.search }
+              containerStyle={{backgroundColor: 'white', borderBottomColor: "white", borderTopColor: "white"}}
+            />
+        
+        <View style={{ flex:1, backgroundColor:"white"}}>
+        </View>
       
-        <DrinkList entities={drinks} func={pressItemHandler}/>
-      
-      </View>
-    </React.Fragment>
-  );
+      </React.Fragment>
+    );
+
+    }
+
 }
 
 
@@ -70,23 +114,56 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       margin: 2,
       paddingTop: 8,
-      backgroundColor: "#f7f7ff",
-      //backgroundColor: "#1a535c",
-      //borderColor: "red",
-      //borderWidth: 2,
+      backgroundColor: "white",
     },
 
     getIngreds: {
       justifyContent: 'center',
       alignItems: 'center',
-      width: 200,
+      width: 150,
       height: 50,
-      margin: 12,
-      borderColor: "black",
+      margin: 4,
+      marginTop: 12,
+      marginBottom: 12,
+      borderColor: '#489fb5',
       borderRadius: 4,
       borderWidth:2,
-      backgroundColor: "#f7f7ff",
+      backgroundColor: 'white',
 
+    },
+
+    buttons: {
+      justifyContent: 'center',
+      alignItems: "center",
+      flexDirection: "row",
+      backgroundColor: "white",
     }
 
   });
+
+
+
+
+  /*
+
+  let drink_keys =Object.keys( DATA )
+  let drinks = [];
+
+  let drink_states = [];
+
+  for (let i =0;i<drink_keys.length;i++){
+      let out = DATA[drink_keys[i]]
+      out["opac"]=1.0;
+      out["darkness"]=0.0;
+      drinks.push( out )
+  }
+
+
+  let term = search.search
+  const renderList = (term) => {
+      if (term!=""){
+        let data = getListByFirstLetter(term);
+      }
+  }
+
+  */

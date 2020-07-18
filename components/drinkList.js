@@ -1,26 +1,31 @@
-import React from 'react';
-import { StyleSheet, FlatList, View, Text, Item } from 'react-native';
-import {DrinkItem, IngredItem } from './drinkItem';
+import React, {useState} from 'react';
+import { Text, FlatList } from 'react-native';
 
-export function DrinkList(props) {
-   let DATA = props.entities;
-  return (
-        <FlatList
-        data={DATA}
-        renderItem={ ( {item} ) => ( <DrinkItem info={ [item.token, item.name, item.key] } func={props.func} /> ) }
-        numColumns={2}
-        />
-  );
+
+let base_url="https://www.thecocktaildb.com/api/json/v1/1/";
+
+function getListByFirstLetter(term){
+    
+    term = term.toLowerCase()
+    let first_letter = term[0];
+    let rest_of_term = term.replace( term[0], "");
+    
+    var data;
+    let url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${first_letter}`;
+    
+    return fetch( url ).then( (resp) => resp.json());
 }
 
-export function IngredList(props) {
 
-   let DATA = props.entities;
+export function NewList(props) {
+
+    ndata = propse.entities;
 
    return (
          <FlatList
-         data={DATA}
-         renderItem={ ( {item} ) => ( <IngredItem info={ [item.amount, item.ingred] }/> ) }
+             data={ndata}
+             renderItem={ ({item}) => ( <Text>{"here"}</Text> ) }
          />
    );
  }
+ 

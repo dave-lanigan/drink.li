@@ -1,19 +1,17 @@
 
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import Home from './screens/home';
 import Ingrediants from './screens/ingrediants';
-import About from './screens/about';
+import Drink from './screens/drink';
 import { Feather } from '@expo/vector-icons'; 
 
 //navigation
 import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 const Tabs = createMaterialBottomTabNavigator();
@@ -24,7 +22,7 @@ function StackedHome(){
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home}/>
       <Stack.Screen name="Ingrediants" component={Ingrediants}/>
-      <Stack.Screen name="About" component={About}/>
+      <Stack.Screen name="Drink" component={Drink} />
     </Stack.Navigator>
   )
 }
@@ -34,7 +32,7 @@ function StackedHome(){
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer style={ styles.nav } >
+      <NavigationContainer>
           <Tabs.Navigator
               barStyle={styles.nav}
               screenOptions={({ route }) => ({
@@ -61,12 +59,14 @@ export default function App() {
                 inactiveTintColor: 'gray',
               }}
                >
+
               <Tabs.Screen name="Home" component={StackedHome} />
-              <Tabs.Screen name="About" component={About} />
+              
           </Tabs.Navigator>
       </NavigationContainer>
   
   </SafeAreaProvider>
+
   );
 }
 
